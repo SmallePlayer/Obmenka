@@ -28,10 +28,11 @@ while True:
 
     result = model(source=frame, verbose=False, device='cpu', stream=True)
     for result in result:
-        box = result.boxes.xyxy.tolist()
-        ids = result.boxes.id
+        box = result.boxes.xyxy.numpy().astype(int)
+        ids = result.boxes.cls.numpy().astype(int)
         print(f"{ids} {box}")
     with open(f'test_frame_{saved_counter:05d}.txt', 'w') as file:
+        file.write(' '.join(map(str, ids)))
         file.write(' '.join(map(str, box)))
 
 
