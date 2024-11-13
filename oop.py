@@ -8,9 +8,10 @@ class PMO:
         self.topic = topic
 
 class Publisher(PMO):
-    def __init__(self,address,port,topic,data):
+    def __init__(self,address,port,topic,data, Delay):
         super().__init__(address,port,topic)
         self.data = data
+        self.delay = Delay
 
     def publish(self):
         context = zmq.Context()
