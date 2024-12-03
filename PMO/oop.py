@@ -50,7 +50,7 @@ class PMO:
             topic, encode_frame = data.split(' ',maxsplit=1)
             frame = PMO.__decoding_frame(self,encode_frame)
             if yolo==True:
-                class_id = processing_def.yolo_detect("11","n",frame,show=True)
+                class_id = processing_def.yolo_detect("11","n",frame, show=True)
                 return class_id
 
     def __capture_camera(self,cap):
